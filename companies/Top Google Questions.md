@@ -2,13 +2,13 @@
 
 | Title                                                                                                                                         |              Difficulty               |
 |:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------:|
-| [1. Two Sum](https://leetcode.com/problems/two-sum/)                                                                                          |  $${\color{lightgreen}Easy}$$  |
-| [13. Roman to Integer](https://leetcode.com/problems/roman-to-integer/)                                                                       |  $${\color{lightgreen}Easy}$$  |
-| [14. Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/)                                                             |  $${\color{lightgreen}Easy}$$  |
-| [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)                                                                     |  $${\color{lightgreen}Easy}$$  |
-| [359. Logger Rate Limiter](https://leetcode.com/problems/logger-rate-limiter/)                                                                |  $${\color{lightgreen}Easy}$$  |
-| [704. Binary Search](https://leetcode.com/problems/binary-search/)                                                                            |  $${\color{lightgreen}Easy}$$  |
-| [938. Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst/)                                                                      |  $${\color{lightgreen}Easy}$$  |
+| [1. Two Sum](https://leetcode.com/problems/two-sum/)                                                                                          |  <p style="color:#00B8A3"> Easy</p>  |
+| [13. Roman to Integer](https://leetcode.com/problems/roman-to-integer/)                                                                       |  <p style="color:#00B8A3"> Easy</p>  |
+| [14. Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/)                                                             |  <p style="color:#00B8A3"> Easy</p>  |
+| [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)                                                                     |  <p style="color:#00B8A3"> Easy</p>  |
+| [359. Logger Rate Limiter](https://leetcode.com/problems/logger-rate-limiter/)                                                                |  <p style="color:#00B8A3"> Easy</p>  |
+| [704. Binary Search](https://leetcode.com/problems/binary-search/)                                                                            |  <p style="color:#00B8A3"> Easy</p>  |
+| [938. Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst/)                                                                      |  <p style="color:#00B8A3"> Easy</p>  |
 | [56. Merge Intervals](https://leetcode.com/problems/merge-intervals/)                                                                         | <p style="color:#FFC01E"> Medium </p> |
 | [128. Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/)                                              | <p style="color:#FFC01E"> Medium </p> |
 | [146. LRU Cache](https://leetcode.com/problems/lru-cache/)                                                                                    | <p style="color:#FFC01E"> Medium </p> |

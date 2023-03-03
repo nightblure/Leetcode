@@ -1,5 +1,7 @@
 # https://leetcode.com/problems/add-two-numbers/
 
+from utils import list_to_linked_list, list_to_str
+
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -33,15 +35,6 @@ class Solution:
 
         return dummy.next
 
-def get_ll(values):
-    head = ListNode(values[0])
-    cur = head
-
-    for value in values[1:]:
-        cur.next = ListNode(value)
-        cur = cur.next
-
-    return head
 
 arrs = [
     ([2,4,3], [5,6,4]),
@@ -53,7 +46,7 @@ obj = Solution()
 
 for data in arrs:
     a1, a2 = data[0], data[1]
-    res = obj.addTwoNumbers(get_ll(a1), get_ll(a2))
+    res = obj.addTwoNumbers(list_to_linked_list(a1), list_to_linked_list(a2))
     resl = []
 
     while res:
@@ -61,5 +54,5 @@ for data in arrs:
         res = res.next
     
     print(
-        f"{''.join([str(x) for x in a1])} + {''.join([str(x) for x in a2])} = {''.join([str(x) for x in resl])}"
+        f"{list_to_str(a1)} + {list_to_str(a2)} = {list_to_str(resl)}"
     )

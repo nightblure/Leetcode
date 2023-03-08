@@ -12,7 +12,6 @@ class Solution:
     def climbStairs(self, n: int) -> int:
         if n == 1:
             return 1
-
         """
         фактически нужно посчитать n-нное число Фибоначчи,
         но в этой задаче первые два числа ряда равны 1 и 2, 
@@ -20,14 +19,14 @@ class Solution:
         а на вторую ступеньку можем подняться двумя способами:
         (2 шага по 1 ступеньке и 1 шаг по 2 ступеньки)
         """
-        fibs = [0] * n
-        fibs[0] = 1 
-        fibs[1] = 2
+        current, next = 1, 2
 
-        for i in range(2, n):
-            fibs[i] = fibs[i - 1] + fibs[i - 2]
+        for _ in range(2, n):
+            tmp = next
+            next += current
+            current = tmp
 
-        return fibs[n - 1]
+        return next
 
 tests_data = (
     (2, 2),

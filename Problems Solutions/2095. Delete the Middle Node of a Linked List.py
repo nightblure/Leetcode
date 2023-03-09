@@ -1,9 +1,6 @@
 # https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/description/
 
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+from utils import list_to_linked_list, ListNode, is_same_linked_lists
 
 class Solution:
     def deleteMiddle(self, head: ListNode) -> ListNode:
@@ -24,17 +21,7 @@ class Solution:
 
         return dummy.next
 
-def get_ll(values):
-    head = ListNode(values[0])
-    cur = head
-
-    for value in values[1:]:
-        cur.next = ListNode(value)
-        cur = cur.next
-
-    return head
-
-arrs = [
+tests_data = [
     ([1,3,4,7,1,2,6], [1,3,4,1,2,6]),
     ([1,2,3,4], [1,2,4]),
     ([2,1], [2])
@@ -42,15 +29,7 @@ arrs = [
 
 obj = Solution()
 
-for data in arrs:
-    l = data[0]
-    res = obj.deleteMiddle(get_ll(l))
-    ll = []
-
-    while res:
-        ll.append(res.val)
-        res = res.next
-    
-    print(
-        f"deleteMiddle({','.join([str(x) for x in l])}) = {''.join([str(x) for x in ll])}"
-    )
+for data in tests_data:
+    l1 = list_to_linked_list(data[0])
+    l2 = list_to_linked_list(data[1])
+    assert is_same_linked_lists(obj.deleteMiddle(l1), l2)

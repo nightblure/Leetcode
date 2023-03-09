@@ -46,6 +46,17 @@ class TreeNode:
             else:
                 self.right.insert(value)
 
+def is_same_linked_lists(l1, l2):
+    while l1 and l2:
+        if l1.val != l2.val:
+            return False
+        if not l1 or not l2:
+            return False
+        l1 = l1.next
+        l2 = l2.next
+
+    return True
+
 def display_func_value(f):
     def inner(*args, **kwargs):
         value = f(*args, **kwargs)
@@ -54,6 +65,8 @@ def display_func_value(f):
     return inner
 
 def list_to_linked_list(values: list):
+    if not values:
+        return None
     head = ListNode(values[0])
     cur = head
 

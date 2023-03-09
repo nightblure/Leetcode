@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/add-two-numbers/
 
-from utils import list_to_linked_list, list_to_str
+from utils import list_to_linked_list, is_same_linked_lists
 
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -37,22 +37,14 @@ class Solution:
 
 
 arrs = [
-    ([2,4,3], [5,6,4]),
-    ([0], [0]),
-    ([9,9,9,9,9,9,9], [9,9,9,9])
+    ([2,4,3], [5,6,4], [7,0,8]),
+    ([0], [0], [0]),
+    ([9,9,9,9,9,9,9], [9,9,9,9], [8,9,9,9,0,0,0,1])
 ]
 
 obj = Solution()
 
 for data in arrs:
-    a1, a2 = data[0], data[1]
-    res = obj.addTwoNumbers(list_to_linked_list(a1), list_to_linked_list(a2))
-    resl = []
-
-    while res:
-        resl.append(res.val)
-        res = res.next
-    
-    print(
-        f"{list_to_str(a1)} + {list_to_str(a2)} = {list_to_str(resl)}"
-    )
+    l1, l2 = list_to_linked_list(data[0]), list_to_linked_list(data[1])
+    res = obj.addTwoNumbers(l1, l2)
+    assert is_same_linked_lists(res, list_to_linked_list(data[-1]))

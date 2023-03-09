@@ -2,21 +2,19 @@
 
 class Solution:
     def longestCommonPrefix(self, strs) -> str:
-        index = 0
-        flag = False
+        stop = False
         prefix = ''
 
-        for ch in strs[0]:
+        for index, ch in enumerate(strs[0]):
             for word in strs[1:]:
-                if index > len(word) - 1 or strs[0][index] != word[index]:
-                    flag = True
+                if index > len(word) - 1 or ch != word[index]:
+                    stop = True
                     break
 
-            if flag:
+            if stop:
                 break
                 
-            prefix += strs[0][index]
-            index += 1
+            prefix += ch
                 
         return prefix
 

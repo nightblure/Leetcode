@@ -5,23 +5,31 @@ from collections import defaultdict
 
 class Solution:
     def countGoodSubstrings(self, s: str) -> int:
-        count = l = 0
-        ss = defaultdict(int)
+        substr = defaultdict(int)
+        res = 0
+        l = 0
 
-        for r in range(len(s)):
-            ss[s[r]] += 1
+        # хешмапа будет имитировать подстроку в скользящем окне
+        # ключ - символ строки, значение - количество вхождений
+        for r, ch in enumerate(s):
+            substr[ch] += 1
 
+            # если это условие истинно, то подстрока длиной 3 набрана
+            # и необходимо посмотреть количество ключей (уникальных символов) в мапе
+            # если оно = 3, то подстрока найдена
+            # также в конец не забываем сместить скользящее окно, удалив левый символ
             if r - l + 1 == 3:
-                if len(ss) == 3:
-                    count += 1
+                if len(substr) == 3:
+                    res += 1
 
-                ss[s[l]] -= 1
-                if ss[s[l]] == 0:
-                    del ss[s[l]]
-               
-                l += 1
+                substr[s[l]] -= 1
 
-        return count
+                if substr[s[l]] == 0:
+                    del substr[s[l]]
+                
+                l += 1     
+        
+        return res
 
 
 tests_data = {

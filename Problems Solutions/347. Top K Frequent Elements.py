@@ -5,22 +5,21 @@ from collections import Counter, defaultdict
 
 class Solution:
     def topKFrequent(self, nums, k):
-        counts = Counter(nums)
-        counts_ = defaultdict(list)
+        counts= Counter(nums)
+        freqs = [[] for _ in range(len(nums) + 1)]
 
-        for num in counts:
-            count = counts[num]
-            counts_[count].append(num)
+        for num, count in counts.items():
+            freqs[count].append(num)
 
+        print(freqs)
         result = []
 
-        scounts = list(sorted(counts_.keys()))
+        for i in range(len(freqs) - 1, -1, -1):
+            for num in freqs[i]:
+                result.append(num)
 
-        for i in range(len(scounts)):
-            result.extend(counts_[scounts[-1 - i]])
-
-            if len(result) == k:
-                return result
+                if len(result) == k:
+                    return result
 
 tests_data = [
     ([1,1,1,2,2,3], 2, [1, 2]),

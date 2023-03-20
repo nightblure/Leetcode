@@ -3,8 +3,6 @@
 class NumArray:
 
     def __init__(self, nums):
-        print(nums)
-
         # calc prefix sums
         for i in range(1, len(nums)):
             nums[i] += nums[i - 1]
@@ -13,13 +11,10 @@ class NumArray:
         print(nums)
 
     def sumRange(self, left: int, right: int) -> int:
-        lsum = self.nums[left]
-        rsum = self.nums[right]
-
         if left == 0:
-            return rsum
+            return self.nums[right]
         else:
-            return rsum - self.nums[left - 1]
+            return self.nums[right] - self.nums[left - 1]
 
 numArray = NumArray([-2, 0, 3, -5, 2, -1])
 numArray.sumRange(0, 2) # return (-2) + 0 + 3 = 1

@@ -19,14 +19,14 @@ class Solution:
         а на вторую ступеньку можем подняться двумя способами:
         (2 шага по 1 ступеньке и 1 шаг по 2 ступеньки)
         """
-        current, next = 1, 2
+        first, second = 1, 2
 
-        for _ in range(2, n):
-            tmp = next
-            next += current
-            current = tmp
+        for i in range(3, n + 1):
+            cur = first + second
+            first = second
+            second = cur
 
-        return next
+        return second
 
 tests_data = (
     (2, 2),

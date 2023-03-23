@@ -1,4 +1,4 @@
-# https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/description/
+# https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/
 
 from utils import list_to_linked_list, ListNode, is_same_linked_lists
 
@@ -11,14 +11,13 @@ class Solution:
         потому что при fast = slow = head мы находим middle ноду
         """
         dummy = ListNode(next=head)
-        fast, slow = dummy.next, dummy
+        slow, fast = dummy, dummy.next
 
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
         
         slow.next = slow.next.next
-
         return dummy.next
 
 tests_data = [

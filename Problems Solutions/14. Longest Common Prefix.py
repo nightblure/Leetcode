@@ -1,4 +1,4 @@
-# https://leetcode.com/problems/longest-common-prefix/description/
+# https://leetcode.com/problems/longest-common-prefix/
 
 class Solution:
     def longestCommonPrefix(self, strs) -> str:

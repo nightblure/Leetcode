@@ -1,18 +1,18 @@
-# https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
+# https://leetcode.com/problems/remove-nth-node-from-end-of-list/
 
 from utils import list_to_linked_list, ListNode, is_same_linked_lists
 
 class Solution:
     def removeNthFromEnd(self, head, n):
         dummy = ListNode(next=head)
-        fast = slow = dummy
-
+        slow, fast = dummy, dummy.next
+        
         for _ in range(n):
             fast = fast.next
-
-        while fast and fast.next:
-            fast = fast.next
+        
+        while fast:
             slow = slow.next
+            fast = fast.next
         
         slow.next = slow.next.next
         return dummy.next

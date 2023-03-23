@@ -1,4 +1,4 @@
-# https://leetcode.com/problems/merge-intervals/description/
+# https://leetcode.com/problems/merge-intervals/
 
 class Solution:
     def merge(self, intervals):
@@ -6,13 +6,13 @@ class Solution:
         result = [intervals[0]]
 
         def merge(i1, i2):
+            if i1[1] < i2[0]:
+                return None
+            
             if i1[0] <= i2[0] and i1[1] >= i2[1]:
                 return i1
-
-            if i1[1] >= i2[0]:
-                return [i1[0], i2[1]]
-
-            return None
+            
+            return [i1[0], i2[1]]
 
         for i in range(1, len(intervals)):
             i1, i2 = result.pop(), intervals[i]

@@ -11,27 +11,24 @@ class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
         dummy = ListNode()
         cur = dummy
-        mem = 0
+        add = 0
 
-        while l1 or l2 or mem == 1:
+        while l1 or l2 or add:
             n1 = l1.val if l1 else 0
             n2 = l2.val if l2 else 0
-            sum = n1 + n2 + mem
+            sum = n1 + n2 + add
             
             if sum >= 10:
-                sum = sum % 10
-                mem = 1
+                sum %= 10
+                add = 1
             else:
-                mem = 0
+                add = 0
 
             cur.next = ListNode(sum)
             cur = cur.next
 
-            if l1:
-                l1 = l1.next
-
-            if l2:
-                l2 = l2.next
+            l1 = l1.next if l1 else None
+            l2 = l2.next if l2 else None
 
         return dummy.next
 

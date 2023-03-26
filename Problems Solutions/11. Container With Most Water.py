@@ -2,21 +2,20 @@
 
 class Solution:
     def maxArea(self, height) -> int:
+        max_area = 0
         l, r = 0, len(height) - 1
-        maxarea = 0
 
         while l < r:
             lh, rh = height[l], height[r]
-            h = min(lh, rh)
-            w = r - l
-            maxarea = max(maxarea, h * w)
+            area = (r - l) * min(lh, rh)
+            max_area = max(max_area, area)
 
-            if lh > rh:
-                r -= 1
-            else:
+            if lh < rh:
                 l += 1
-
-        return maxarea
+            else:
+                r -= 1
+        
+        return max_area
 
 tests_data = [
     ([1,8,6,2,5,4,8,3,7], 49),

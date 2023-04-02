@@ -82,6 +82,8 @@ def list_to_str(values, delimiter=None):
     return f'{delimiter}'.join([str(x) for x in values])
 
 def list_to_order_btree(values):
+    if not values:
+        return None
 
     root = TreeNode(values.pop(0))
     nodes = deque([root])

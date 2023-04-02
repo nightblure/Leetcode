@@ -1,4 +1,4 @@
-# https://leetcode.com/problems/insert-into-a-binary-search-tree/description/
+# https://leetcode.com/problems/insert-into-a-binary-search-tree/
 
 from utils import TreeNode, list_to_search_btree
 
@@ -6,16 +6,17 @@ class Solution:
     def insertIntoBST(self, root, val: int):
         if not root:
             return TreeNode(val)
-
+        
         if not root.left and val < root.val:
             root.left = TreeNode(val)
-        elif not root.right and val > root.val:
+
+        if not root.right and val > root.val:
             root.right = TreeNode(val)
+
+        if val > root.val:
+            self.insertIntoBST(root.right, val)
         else:
-            if root.val < val:
-                self.insertIntoBST(root.right, val)
-            else:
-                self.insertIntoBST(root.left, val)
+            self.insertIntoBST(root.left, val)
         
         return root
 

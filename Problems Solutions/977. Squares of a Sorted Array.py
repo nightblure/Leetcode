@@ -3,20 +3,20 @@
 class Solution:
     def sortedSquares(self, nums):
         l = 0 
-        r = write_index = len(nums) - 1
+        r = wp = len(nums) - 1
         result = [0] * len(nums)
 
         while l <= r:
             l_num, r_num = nums[l] ** 2, nums[r] ** 2
 
             if l_num > r_num:
-                result[write_index] = l_num
+                result[wp] = l_num
                 l += 1
             else:
-                result[write_index] = r_num
+                result[wp] = r_num
                 r -= 1
             
-            write_index -= 1
+            wp -= 1
         
         return result
 

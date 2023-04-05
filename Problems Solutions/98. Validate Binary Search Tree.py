@@ -9,7 +9,7 @@ class Solution:
             if not node:
                 return True
                             
-            if not (low_bound < node.val < upper_bound):
+            if node.val <= low_bound or node.val >= upper_bound:
                 return False
             
             return isvalid(node.left, low_bound, node.val) and isvalid(node.right, node.val, upper_bound)

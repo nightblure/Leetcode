@@ -10,21 +10,22 @@
 
 class Solution:
     def climbStairs(self, n: int) -> int:
-        if n == 1:
-            return 1
         """
         фактически нужно посчитать n-нное число Фибоначчи,
         но в этой задаче первые два числа ряда равны 1 и 2, 
         потому что на 1-ую ступеньку мы можем подняться одним способом,
         а на вторую ступеньку двумя способами: 2 шага по 1 ступеньке и 1 шаг по 2 ступеньки
         """
-        a, b = 1, 2
+        if n == 1:
+            return 1
 
-        for _ in range(3, n + 1):
-            next = a + b
-            a, b = b, next
+        f, s = 1, 2
 
-        return b
+        for _ in range(2, n):
+            next = f + s
+            f, s = s, next
+
+        return s
 
 tests_data = (
     (2, 2),

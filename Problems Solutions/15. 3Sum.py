@@ -11,35 +11,27 @@ Notice that the solution set must not contain duplicate triplets.
 # time complexity is nlogn + n^2 = n^2
 class Solution:
     def threeSum(self, nums):
-        def get_triplets(exclude_idx, nums, target):
-            res = set()
-            l, r = exclude_idx + 1, len(nums) - 1
-
-            while l < r:
-                l_num = nums[l]
-                r_num = nums[r]
-                summ = l_num + r_num
-
-                if target == summ:
-                    res.add(tuple([nums[exclude_idx], l_num, r_num]))
-
-                if summ < target:
-                    l += 1
-                else:
-                    r -= 1
-
-            return res
-
-        result = []
+        result = set()
         nums.sort()
 
-        for i, num in enumerate(nums):
-            if i > 0 and nums[i - 1] == num:
+        for i, n in enumerate(nums):
+            if i > 0 and nums[i] == nums[i - 1]:
                 continue
             
-            result.extend(get_triplets(i, nums, 0 - num))
-        
-        return result
+            l, r = i + 1, len(nums) - 1
+
+            while l < r:
+                total_sum = nums[l] + nums[r] + n
+
+                if total_sum == 0:
+                    result.add((n, nums[l], nums[r]))
+                
+                if total_sum > 0:
+                    r -= 1
+                else:
+                    l += 1
+
+        return list(result)
 
 tests_data = [
     ([-1,0,1,2,-1,-4], [[-1,-1,2],[-1,0,1]]),

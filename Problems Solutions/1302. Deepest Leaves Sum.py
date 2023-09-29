@@ -1,31 +1,26 @@
 # https://leetcode.com/problems/deepest-leaves-sum/
 
 from utils import list_to_order_btree
-from collections import deque
 
 
 class Solution:
     def deepestLeavesSum(self, root) -> int:
-        nodes = deque([root])
-        levels = []
+       nodes = [root]
+       level_sum = 0
+       
+       while nodes:
+        level_sum = 0
 
-        while nodes:
-            lvl = []
+        for _ in range(len(nodes)):
+            node = nodes.pop(0)
+            level_sum += node.val
             
-            for _ in range(len(nodes)):
-                node = nodes.pop()
-                lvl.append(node.val)
+            if node.left:
+                nodes.append(node.left)
+            if node.right:
+                nodes.append(node.right)
 
-                if node.left:
-                    nodes.appendleft(node.left)
-                if node.right:
-                    nodes.appendleft(node.right)
-            
-            if lvl:
-                levels.append(lvl)
-        
-        print(levels)
-        return sum(levels[-1])
+        return level_sum
 
 tests_data = [
     ([1,2,3,4,5,None,6,7,None,None,None,None,8], 15),

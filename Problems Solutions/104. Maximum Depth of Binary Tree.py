@@ -6,8 +6,22 @@ class Solution:
     def maxDepth(self, root) -> int:
         if not root:
             return 0
-        else:
-            return max(self.maxDepth(root.left) + 1, self.maxDepth(root.right) + 1)
+        
+        r = 1
+        nodes = [(root, 1)]
+
+        while nodes:
+            lvl = []
+            
+            node, lvl = nodes.pop()
+            r = max(r, lvl)
+            
+            if node.left:
+                nodes.append((node.left, lvl + 1))
+            if node.right:
+                nodes.append((node.right, lvl + 1))
+
+        return r
 
 tests_data = [
     ([3,9,20,None,None,15,7], 3),

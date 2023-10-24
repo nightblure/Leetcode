@@ -12,9 +12,27 @@ type MyLinkedList struct {
 	count int
 }
 
+func CreateFrom(items []int) MyLinkedList {
+	var list = MyLinkedList{}
+	for _, value := range(items){
+		list.AddAtTail(value)
+	}
+	return list
+}
+
 func Constructor() MyLinkedList {
 	var list = MyLinkedList{count: 0, head: nil}
 	return list
+}
+
+func (l *MyLinkedList) Print() {
+	var node = l.head
+	fmt.Println(node.value)
+
+	for node.next != nil {
+		node = node.next
+		fmt.Println(node.value)
+	}
 }
 
 func (this *MyLinkedList) getNode(index int) *Node {
@@ -95,10 +113,14 @@ func (this *MyLinkedList) DeleteAtIndex(index int) {
 }
 
 func main() {
-	var obj = Constructor()
-	obj.AddAtHead(1)
-	obj.AddAtTail(3)
-	obj.AddAtIndex(1, 2)
-	obj.DeleteAtIndex(1)
-	fmt.Println(obj.Get(1))
+	var l = Constructor()
+	l.AddAtHead(1)
+	l.AddAtTail(3)
+	l.AddAtIndex(1, 2)
+	l.DeleteAtIndex(1)
+	fmt.Println(l.Get(1), "\n")
+
+	var nums = []int {1, 2, 3, 4, 5}
+	l = CreateFrom(nums)
+	l.Print()
 }

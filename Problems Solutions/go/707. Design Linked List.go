@@ -20,7 +20,7 @@ func CreateFrom(items []int) MyLinkedList {
 	return list
 }
 
-func Constructor() MyLinkedList {
+func CreateLinkedListInstance() MyLinkedList {
 	var list = MyLinkedList{count: 0, head: nil}
 	return list
 }

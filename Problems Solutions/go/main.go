@@ -3,12 +3,12 @@ package main
 import "fmt"
 
 func linkedList() {
-	var l = Constructor()
+	var l = CreateLinkedListInstance()
 	l.AddAtHead(1)
 	l.AddAtTail(3)
 	l.AddAtIndex(1, 2)
 	l.DeleteAtIndex(1)
-	fmt.Println(l.Get(1), "\n")
+	fmt.Println(l.Get(1))
 
 	var nums = []int {1, 2, 3, 4, 5}
 	l = CreateFrom(nums)
@@ -23,7 +23,15 @@ func mergeIntervals() {
 	fmt.Println(r)
 }
 
+func minStack() {
+	var s = CreateMinStack()
+	s.Push(1)
+	s.Push(0)
+	fmt.Println(s.GetMin())
+}
+
 func main() {
 	// linkedList()
-	mergeIntervals()
+	// mergeIntervals()
+	minStack()
 }

@@ -4,24 +4,23 @@ from utils import list_to_order_btree
 
 class Solution:
     def maxDepth(self, root) -> int:
-        if not root:
+        if root is None:
             return 0
         
-        r = 1
+        depth = 1
         nodes = [(root, 1)]
 
         while nodes:
-            lvl = []
-            
             node, lvl = nodes.pop()
-            r = max(r, lvl)
-            
-            if node.left:
-                nodes.append((node.left, lvl + 1))
-            if node.right:
-                nodes.append((node.right, lvl + 1))
 
-        return r
+            if node is None:
+                continue
+
+            depth = max(depth, lvl)
+            nodes.append((node.left, lvl + 1))
+            nodes.append((node.right, lvl + 1))
+
+        return depth
 
 tests_data = [
     ([3,9,20,None,None,15,7], 3),

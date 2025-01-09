@@ -18,20 +18,20 @@ def levelOrder(root):
     nodes = deque([root])
 
     while nodes:
-        next_lvl = []
+        lvl = []
 
         for _ in range(len(nodes)):
             node = nodes.popleft()
 
             if node.left:
-                next_lvl.append(node.left.val)
+                lvl.append(node.left.val)
                 nodes.append(node.left)
 
             if node.right:
-                next_lvl.append(node.right.val)
+                lvl.append(node.right.val)
                 nodes.append(node.right)
 
-        if next_lvl:
-            lvls.append(next_lvl)
+        if lvl:
+            lvls.append(lvl)
 
     return lvls

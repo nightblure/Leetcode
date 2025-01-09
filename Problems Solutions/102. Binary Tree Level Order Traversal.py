@@ -9,7 +9,7 @@ class TreeNode:
         self.left = left
         self.right = right
 
-
+# супер важно: обрабатывать ноды и добавлять в уровень надо строго слева-направо!
 def levelOrder(root):
     if not root:
         return []

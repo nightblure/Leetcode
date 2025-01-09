@@ -1,28 +1,37 @@
+# https://leetcode.com/problems/binary-tree-level-order-traversal/
+
 from collections import deque
 
-class Solution:
-    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        if not root:
-            return []
 
-        lvls = [[root.val]]
-        nodes = deque([root])
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
-        while nodes:
-            next_lvl = []
 
-            for _ in range(len(nodes)):
-                node = nodes.popleft()
+def levelOrder(root):
+    if not root:
+        return []
 
-                if node.left:
-                    next_lvl.append(node.left.val)
-                    nodes.append(node.left)
+    lvls = [[root.val]]
+    nodes = deque([root])
 
-                if node.right:
-                    next_lvl.append(node.right.val)
-                    nodes.append(node.right)
+    while nodes:
+        next_lvl = []
 
-            if next_lvl:
-                lvls.append(next_lvl)
+        for _ in range(len(nodes)):
+            node = nodes.popleft()
 
-        return lvls
+            if node.left:
+                next_lvl.append(node.left.val)
+                nodes.append(node.left)
+
+            if node.right:
+                next_lvl.append(node.right.val)
+                nodes.append(node.right)
+
+        if next_lvl:
+            lvls.append(next_lvl)
+
+    return lvls

@@ -2,17 +2,16 @@
 
 class Solution:
     def firstUniqChar(self, s: str) -> int:
-        d = {}
+        char_to_repeats_count = {}
 
         for i, ch in enumerate(s):
-            if ch not in d:
-                d[ch] = (1, i)
-            else:
-                d[ch] = (d[ch][0] + 1, i)
-        
-        for ch, value in d.items():
-            if value[0] == 1:
-                return value[1]
+            _, repeats = char_to_repeats_count.get(ch, (i, 0))
+            repeats += 1
+            char_to_repeats_count[ch] = (i, repeats)
+
+        for idx, repeats_count in char_to_repeats_count.values():
+            if repeats_count == 1:
+                return idx
 
         return -1
 

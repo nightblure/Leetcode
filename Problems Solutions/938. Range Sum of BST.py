@@ -11,11 +11,14 @@ class Solution:
         while nodes:
             node = nodes.pop()
 
-            if node:
-                if node.val >= low and node.val <= high:
-                    sum += node.val
-                nodes.append(node.left)
-                nodes.append(node.right)              
+            if not node:
+                continue
+                
+            if node.val >= low and node.val <= high:
+                sum += node.val
+                
+            nodes.append(node.left)
+            nodes.append(node.right)              
 
         return sum
 

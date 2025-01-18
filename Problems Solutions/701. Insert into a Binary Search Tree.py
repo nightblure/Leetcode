@@ -6,17 +6,16 @@ class Solution:
     def insertIntoBST(self, root, val: int):
         if not root:
             return TreeNode(val)
-
-        if not root.left and root.val > val:
-            root.left = TreeNode(val)
         
-        if not root.right and root.val < val:
+        if root.left and val < root.val:
+            self.insertIntoBST(root.left, val)
+        elif root.right and val > root.val:
+            self.insertIntoBST(root.right, val)
+        
+        if not root.left and val < root.val:
+            root.left = TreeNode(val)
+        elif not root.right and val > root.val:
             root.right = TreeNode(val)
-        else:
-            if val < root.val:        
-                self.insertIntoBST(root.left, val)
-            else:
-                self.insertIntoBST(root.right, val)
         
         return root
 
